@@ -3,7 +3,7 @@ class CreateRecords < ActiveRecord::Migration
     create_table :records do |t|
       t.text :content
       t.references :list
-      t.boolean :checked
+      t.boolean :checked, default: false
       t.timestamps
     end
     add_index :records, :list_id

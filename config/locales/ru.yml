@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    models:
+      list:
+        one: 'Список'
+    attributes:
+      list:
+        name: 'Название'

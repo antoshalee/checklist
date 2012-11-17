@@ -1,0 +1,13 @@
+= nested_form_for @list do |f|
+  - @list.errors.full_messages.each do |msg|
+    %p= msg
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+    = f.fields_for :records do |record_form|
+      = record_form.text_field :content
+      = record_form.link_to_remove "X"
+    %p
+      = f.link_to_add "Добавить запись", :records
+  %p= f.submit

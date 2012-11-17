@@ -1,0 +1,13 @@
+%h1
+  = @list.name
+
+%ul.list_records
+  - @list.records.each do |r|
+    %li.list_record
+      = check_box_tag "check_#{r.id}", "1", r.checked, class: 'list_record_check', data: {record_id: r.id}
+      = r.content
+
+%p
+  = link_to "Редактировать", edit_list_path(@list)
+  |
+  \#{link_to "Удалить", @list, :confirm => 'Are you sure?', :method => :delete}

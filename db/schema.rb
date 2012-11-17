@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 20121117142740) do
   create_table "records", :force => true do |t|
     t.text     "content"
     t.integer  "list_id"
-    t.boolean  "checked"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "checked",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "records", ["list_id"], :name => "index_records_on_list_id"
