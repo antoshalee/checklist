@@ -6,7 +6,7 @@ class List < ActiveRecord::Base
 
   validates :name, presence: true
 
-  after_initialize :default_empty_records
+  #after_initialize :default_empty_records
 
   private
 
