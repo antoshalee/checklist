@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class List < ActiveRecord::Base
   attr_accessible :name, :records_attributes
   has_many :records

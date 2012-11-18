@@ -1,5 +1,10 @@
+# -*- encoding : utf-8 -*-
 Checklist::Application.routes.draw do
-  resources :lists
+  resources :lists do
+    member do
+      post 'clone'
+    end
+  end
   resources :records, only: [] do
     member do
       post 'check'

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RecordsController < ApplicationController
   def check
     record = Record.find params[:id]

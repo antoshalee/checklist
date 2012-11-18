@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ListsController < ApplicationController
   def index
     @lists = List.all
@@ -37,5 +38,16 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.destroy
     redirect_to lists_url, :notice => "Successfully destroyed list."
+  end
+
+  def clone
+    list = List.find(params[:id])
+    new_list = list.dup
+    new_list.name += " (копия)"
+    list.records.each do |r|
+      new_list.records << r.dup
+    end
+    new_list.save
+    redirect_to lists_url, notice: 'Successfully cloned list.'
   end
 end
