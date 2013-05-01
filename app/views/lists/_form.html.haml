@@ -5,10 +5,10 @@
     = f.text_field :name, class: 'ten', placeholder: 'Название чеклиста'
   %fieldset
     %legend Записи
-    = f.fields_for :records do |record_form|
+    = f.fields_for :positions do |position_form|
       .row
         .ten.columns
-          = record_form.text_field :content, placeholder: 'Добавить запись'
-        = record_form.link_to_remove "×", class: 'tiny button alert round'
-    = f.link_to_add "Добавить запись", :records, class: 'small button'
+          =# record_form.text_field :content, placeholder: 'Добавить запись'
+        = position_form.link_to_remove "×", class: 'tiny button alert round'
+    = f.link_to_add "Добавить запись", :positions, class: 'small button'
   %p= f.submit

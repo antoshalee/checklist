@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,12 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117142740) do
+ActiveRecord::Schema.define(:version => 20121128141740) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "list_id"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "groups", ["list_id"], :name => "index_groups_on_list_id"
 
   create_table "lists", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "positions", :force => true do |t|
+    t.integer  "position"
+    t.string   "groupable_type"
+    t.integer  "groupable_id"
+    t.string   "positionable_type"
+    t.integer  "positionable_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "records", :force => true do |t|

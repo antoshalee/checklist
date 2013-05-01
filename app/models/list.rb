@@ -1,8 +1,15 @@
 # -*- encoding : utf-8 -*-
 class List < ActiveRecord::Base
-  attr_accessible :name, :records_attributes
-  has_many :records
-  accepts_nested_attributes_for :records, allow_destroy: true, reject_if: proc { |r| r['content'].blank? }
+  attr_accessible :name, :records_attributes, :positions_attributes
+
+  has_many :positions, as: :groupable
+  has_many :groups, through: :positions, :source => :positionable, :source_type => 'Group'
+  has_many :records, through: :positions, :source => :positionable, :source_type => 'Record'
+  #has_many :groups, through: :positions
+  #has_many :records, through: :positions
+
+  accepts_nested_attributes_for :positions
+  #accepts_nested_attributes_for :records, allow_destroy: true, reject_if: proc { |r| r['content'].blank? }
 
   validates :name, presence: true
 

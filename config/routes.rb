@@ -1,5 +1,10 @@
 # -*- encoding : utf-8 -*-
 Checklist::Application.routes.draw do
+
+  get "start/about"
+
+  get 'about' => "start#about"
+
   resources :lists do
     member do
       post 'clone'
